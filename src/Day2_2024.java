@@ -20,11 +20,20 @@ public class Day2_2024 {
             for (String part : lineList) {
                 intList.add(Integer.parseInt(part));
             }
-            
-
 
             if (validCheck(intList)) {
                 counter++;
+            } else {
+                for (int i = 0; i < intList.size(); i++) {
+                    List<Integer> copy = new ArrayList<>(intList);
+                    copy.remove(i);
+                    if (validCheck(copy)) {
+                        counter++;
+                        break;
+                    }
+
+                }
+
             }
         }
         System.out.println(counter);
@@ -49,6 +58,7 @@ public class Day2_2024 {
                 isValid = true;
             } else {
                 isValid = false;
+
                 break;
             }
         }
